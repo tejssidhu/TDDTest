@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using RandomNumberString.Interfaces;
 
 namespace RandomNumberString
 {
     public class RandomIntegerStringGenerator : IRandomIntegerStringGenerator
     {
-        private IRandomIntegerListGenerator _randomIntegerListGenerator;
-        private int _minValue;
-        private int _maxValue;
+        private readonly IRandomIntegerListGenerator _randomIntegerListGenerator;
+        private readonly int _minValue;
+        private readonly int _maxValue;
 
         public RandomIntegerStringGenerator(IRandomIntegerListGenerator randomIntegerListGenerator, int minValue, int maxValue)
         {
@@ -20,12 +19,12 @@ namespace RandomNumberString
             _maxValue = maxValue;
         }
 
-        public string getRandomIntegerString(int numberOfIntegers)
+        public string GetRandomIntegerString(int numberOfIntegers)
         {
             StringBuilder sb = new StringBuilder();
 
-            List<int> myIntegerList = _randomIntegerListGenerator.getRandomIntegers(numberOfIntegers, _minValue, _maxValue);
-
+            List<int> myIntegerList = _randomIntegerListGenerator.GetRandomIntegers(numberOfIntegers, _minValue, _maxValue);
+            
             foreach (int item in myIntegerList)
             {
                 sb.Append(item.ToString());

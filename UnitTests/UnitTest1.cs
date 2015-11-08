@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RandomNumberString;
 using RandomNumberString.Interfaces;
-using UnitTests.Mocks;
 using Moq;
 using System.Collections.Generic;
 
@@ -17,12 +15,12 @@ namespace UnitTests
             //Arrange
             var mockRandomListGenerator = new Mock<IRandomIntegerListGenerator>();
 
-            mockRandomListGenerator.Setup(x => x.getRandomIntegers(5, 1, 100)).Returns(new List<int> { 10, 55, 26, 14, 15 });
+            mockRandomListGenerator.Setup(x => x.GetRandomIntegers(5, 1, 100)).Returns(new List<int> { 10, 55, 26, 14, 15 });
 
             RandomIntegerStringGenerator randomIntegerStringGenerator = new RandomIntegerStringGenerator(mockRandomListGenerator.Object, 1, 100);
 
             //Act - system under test randomIntegerStringGenerator.getRandomIntegerString
-            string myString = randomIntegerStringGenerator.getRandomIntegerString(5);
+            string myString = randomIntegerStringGenerator.GetRandomIntegerString(5);
 
             //Assert
             Assert.AreEqual("10,55,26,14,15", myString);
