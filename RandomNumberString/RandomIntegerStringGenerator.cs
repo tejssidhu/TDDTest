@@ -24,15 +24,11 @@ namespace RandomNumberString
             StringBuilder sb = new StringBuilder();
 
             List<int> myIntegerList = _randomIntegerListGenerator.GetRandomIntegers(numberOfIntegers, _minValue, _maxValue);
-            
-            foreach (int item in myIntegerList)
-            {
-                sb.Append(item.ToString());
-                
-                if (item != myIntegerList.Last())
-                    sb.Append(",");
-            }
-            
+
+            myIntegerList.ForEach(x => sb.AppendFormat("{0},",x.ToString()));
+
+            sb.Length--;
+
             return sb.ToString();
         }
         
