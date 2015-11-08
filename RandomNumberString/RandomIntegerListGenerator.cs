@@ -12,14 +12,9 @@ namespace RandomNumberString
             Random rnd = new Random();
 
             for (int i = 0; i < numberOfIntegers; i++)
-                myNumbers.Add(getRandomNumber(minValue, maxValue, rnd));
+                myNumbers.Add(rnd.Next(minValue, maxValue));
 
             return myNumbers;
-        }
-
-        private int getRandomNumber(int minValue, int maxValue, Random rnd)
-        {
-            return rnd.Next(minValue, maxValue);
         }
     }
 }
